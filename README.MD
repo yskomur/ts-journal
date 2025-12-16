@@ -1,4 +1,4 @@
-# ts-journald
+# @yskomur/ts-journald
 
 Pure TypeScript systemd-journald client using native Unix sockets. Zero dependencies, high performance logging for Node.js applications on systemd systems.
 
@@ -21,9 +21,9 @@ Pure TypeScript systemd-journald client using native Unix sockets. Zero dependen
 ## Kurulum
 
 ```bash
-npm install ts-journald
+npm install @yskomur/ts-journald
 # veya
-yarn add ts-journald
+yarn add @yskomur/ts-journald
 ```
 
 ## Hızlı Başlangıç
@@ -31,7 +31,7 @@ yarn add ts-journald
 ### Temel Kullanım
 
 ```typescript
-import { info, error, warning, debug } from 'ts-journald';
+import { info, error, warning, debug } from '@yskomur/ts-journald';
 
 // Otomatik olarak default instance ile log gönder
 info('Uygulama başlatıldı');
@@ -43,7 +43,7 @@ debug('Debug mesajı', { timestamp: Date.now() });
 ### Instance Oluşturma
 
 ```typescript
-import { Journal } from 'ts-journald';
+import { Journal } from '@yskomur/ts-journald';
 
 const journal = new Journal({
   identifier: 'my-application',
@@ -61,7 +61,7 @@ journal.info('Service initialized');
 ### Priority Seviyeleri
 
 ```typescript
-import { Priority } from 'ts-journald';
+import { Priority } from '@ts-journald';
 
 // Tüm priority seviyeleri:
 Priority.EMERG      // 0 - Sistem kullanılamaz
@@ -105,14 +105,14 @@ journal.removeStaticField(name: string): boolean           // Static field kald�
 import { 
   emergency, alert, critical, error, 
   warning, notice, info, debug, log 
-} from 'ts-journald';
+} from '@yskomur/ts-journald';
 
 // Global instance ile log gönder
 info('Global log mesajı');
 error('Global hata', { code: 'E001' });
 
 // Instance kontrolü
-import { isConnected, close } from 'ts-journald';
+import { isConnected, close } from '@yskomur/ts-journald';
 console.log('Connected:', isConnected());
 close(); // Bağlantıyı kapat
 ```
@@ -122,7 +122,7 @@ close(); // Bağlantıyı kapat
 ### Özel Alanlar (Fields) Ekleme
 
 ```typescript
-import { Journal } from 'ts-journald';
+import { Journal } from '@yskomur/ts-journald';
 
 const journal = new Journal({
   identifier: 'api-server'
@@ -147,7 +147,7 @@ journal.removeStaticField('REGION');
 ### Stack Trace ile Hata Yönetimi
 
 ```typescript
-import { Journal } from 'ts-journald';
+import { Journal } from '@yskomur/ts-journald';
 
 const journal = new Journal({
   captureStackTrace: true  // Otomatik stack trace (default: true)
@@ -174,7 +174,7 @@ const journal2 = new Journal({
 ### Custom Socket Yolu
 
 ```typescript
-import { Journal } from 'ts-journald';
+import { Journal } from '@yskomur/ts-journald';
 
 // Farklı socket yolu kullanma
 const journal = new Journal({
@@ -191,7 +191,7 @@ if (!journal.isConnected()) {
 ### Queue ve Bağlantı Yönetimi
 
 ```typescript
-import { Journal } from 'ts-journald';
+import { Journal } from '@yskomur/ts-journald';
 
 const journal = new Journal();
 
@@ -213,7 +213,7 @@ process.on('SIGTERM', () => {
 ## Örnek Uygulama
 
 ```typescript
-import { Journal } from 'ts-journald';
+import { Journal } from '@yskomur/ts-journald';
 
 class DatabaseService {
   private journal: Journal;
@@ -272,7 +272,7 @@ class DatabaseService {
 
 // Express middleware örneği
 import express from 'express';
-import { info, error } from 'ts-journald';
+import { info, error } from '@yskomur/ts-journald';
 
 const app = express();
 
@@ -349,7 +349,7 @@ const devJournal = new Journal({
 
 ```typescript
 // test/journal.test.ts
-import { Journal } from 'ts-journald';
+import { Journal } from '@yskomur/ts-journald';
 
 describe('Journal', () => {
   let journal: Journal;

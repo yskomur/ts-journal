@@ -1,6 +1,6 @@
 {
-  "name": "ts-journald",
-  "version": "1.0.1",
+  "name": "@yskomur/ts-journald",
+  "version": "1.0.2",
   "description": "Pure TypeScript systemd-journald client using native Unix sockets",
   "main": "dist/index.js",
   "module": "dist/index.esm.js",
@@ -16,12 +16,12 @@
   "license": "MIT",
   "repository": {
     "type": "git",
-    "url": "https://github.com/yskomur/ts-journal.git"
+    "url": "https://github.com/yskomur/ts-journald.git"
   },
   "bugs": {
-    "url": "https://github.com/yskomur/ts-journal/issues"
+    "url": "https://github.com/yskomur/ts-journald/issues"
   },
-  "homepage": "https://github.com/yskomur/ts-journal#readme",
+  "homepage": "https://github.com/yskomur/ts-journald#readme",
   "devDependencies": {
     "@rollup/plugin-typescript": "^11.1.0",
     "@types/node": "^20.19.27",
